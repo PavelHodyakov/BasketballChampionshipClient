@@ -1,0 +1,32 @@
+<form #f="ngForm" *ngIf="loginService.isAdmin()">
+  <fieldset>
+    <legend>Добавить команду</legend>
+  </fieldset>
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <app-input-field name="name"
+                       placeholder="Название"
+                       [(ngModel)]="team.name"
+                       [required]="true"></app-input-field>
+    </div>
+    <div class="col-12 col-sm-6">
+      <app-input-field name="cityName"
+                       placeholder="Город"
+                       [(ngModel)]="team.city"
+                       [required]="true"></app-input-field>
+    </div>
+  </div>
+
+  <button mat-button
+          [disabled]="!form?.isValid"
+          color="primary"
+          (click)="addTeam()">Добавить
+  </button>
+  <button mat-button
+          [disabled]="!form?.isValid"
+          color="primary"
+          (click)="excludeTeam()">Исключить
+  </button>
+
+
+</form>

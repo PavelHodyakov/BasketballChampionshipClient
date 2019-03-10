@@ -1,0 +1,31 @@
+<form #f="ngForm">
+  <fieldset>
+    <legend>Вход</legend>
+  </fieldset>
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <app-input-field name="loginValue"
+                       placeholder="Логин"
+                       [(ngModel)]="login.loginValue"
+                       [required]="true"></app-input-field>
+    </div>
+    <div class="col-12 col-sm-6">
+      <app-input-field name="password"
+                       placeholder="Пароль"
+                       [(ngModel)]="login.password"
+                       [required]="true"></app-input-field>
+    </div>
+  </div>
+
+  <button mat-button
+          [disabled]="!form.valid"
+          color="primary"
+          (click)="auth()">Вход
+  </button>
+  <button mat-button
+          [disabled]="!form.valid"
+          color="primary"
+          (click)="registryUser()">Регистрация
+  </button>
+
+</form>

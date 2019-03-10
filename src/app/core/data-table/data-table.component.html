@@ -1,0 +1,45 @@
+<div class="mat-elevation-z8" data-table>
+  <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="teamHost">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Команда хозяев</th>
+      <td mat-cell *matCellDef="let row">{{row.teamHost}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="teamGuest">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Команда гостей</th>
+      <td mat-cell *matCellDef="let row">{{row.teamGuest}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="referee">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Судья</th>
+      <td mat-cell *matCellDef="let row">{{row.referee}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Дата</th>
+      <td mat-cell *matCellDef="let row">{{row.data}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="hostPoint">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Очки гостей</th>
+      <td mat-cell *matCellDef="let row">{{row.hostPoint}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="guestPoint">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Очки хозяев</th>
+      <td mat-cell *matCellDef="let row">{{row.guestPoint}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource.data.length"
+      [pageIndex]="0"
+      [pageSize]="50"
+      [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+</div>

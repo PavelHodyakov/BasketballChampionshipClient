@@ -1,0 +1,47 @@
+<form #f="ngForm" *ngIf="loginService.isAdmin()">
+  <fieldset>
+    <legend>Добавить матч</legend>
+  </fieldset>
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <app-select name="value"
+                  [(ngModel)]="match.teamHost"
+                  placeholder="Команда хозяев"></app-select>
+
+    </div>
+
+
+    <div class="col-12 col-sm-6">
+      <app-select name="teams"
+                  [(ngModel)]="match.teamGuest"
+                  placeholder="Команда гостей"></app-select>
+
+    </div>
+    <div class="col-12 col-sm-6">
+      <app-select-referee name="referee"
+                  [(ngModel)]="match.referee"
+                  placeholder="Судья">
+      </app-select-referee>
+
+    </div>
+    <div class="col-12 col-sm-6">
+      <input mdc-datetime-picker="" date="true" time="true" type="text" id="datetimeedit"
+             placeholder="YYYY-MM-DD HH:MM" show-todays-date="" minutes="true" short-time="true"
+             min-date="minDate" max-date="maxDateNow" edit-input="true" show-icon="true" ng-model="dateTimeEdit"
+             name="datetimeedit" class=" dtp-no-msclear dtp-input md-input" [(ngModel)]="match.date" [required]="true">
+    </div>
+
+    </div>
+
+
+
+
+
+  <button mat-button
+          [disabled]="!form?.isValid"
+          color="primary"
+          (click)="createMatch()">Добавить
+  </button>
+
+
+</form>

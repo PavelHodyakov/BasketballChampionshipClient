@@ -1,0 +1,39 @@
+<form #f="ngForm" *ngIf="loginService.isAdmin()">
+  <!--loginService.result &&-->
+  <fieldset>
+    <legend>Добавить судью</legend>
+  </fieldset>
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <app-input-field name="firstName"
+                       placeholder="Имя"
+                       [(ngModel)]="referee.firstName"
+                       [required]="true"></app-input-field>
+    </div>
+    <div class="col-12 col-sm-6">
+      <app-input-field name="lastName"
+                       placeholder="Фамилия"
+                       [(ngModel)]="referee.lastName"
+                       [required]="true"></app-input-field>
+    </div>
+    <div class="col-12 col-sm-6">
+      <app-input-field name="cityName"
+                       placeholder="Город"
+                       [(ngModel)]="referee.city"
+                       [required]="true"></app-input-field>
+    </div>
+  </div>
+
+  <button mat-button
+          [disabled]="!form?.isValid"
+          color="primary"
+          (click)="addReferee()">Добавить
+  </button>
+  <button mat-button
+          [disabled]="!form?.isValid"
+          color="primary"
+          (click)="excludeReferee()">Исключить
+  </button>
+
+
+</form>
